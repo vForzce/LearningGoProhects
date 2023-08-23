@@ -9,7 +9,14 @@ var conferenceName = "Go Conference"
 const conferenceTickets = 50	
 var remainingTickets uint = 50
 
-func welcomeMsg(conferenceName string, conferenceTickets int, remainingTickets uint){
+type User Data struct {
+	firstName	string
+	lastName	string
+	email		string
+	numberofTickets unint
+}
+
+func welcomeMsg(){
 	fmt.Printf("Welcome to %v booking application\n", conferenceName)
 	fmt.Printf("We have total of %v tickets and %v are still available.\n", conferenceTickets, remainingTickets)
 	fmt.Println("Get your tickets here")
@@ -46,6 +53,12 @@ func bookingTickets(firstName string, lastName string, email string, userTickets
 	print(ticketCheck)
 }
 
+func TicketAvavablity(){
+	if remainingTickets < userTickets{
+		return fmt.err("Sorry not enough tickets avaiable")
+	}
+}
+
 func bookingList(firstName string, lastName string) string {
 	bookings := [] string {}
 	firstNames := []string {}
@@ -55,13 +68,15 @@ func bookingList(firstName string, lastName string) string {
 		var names = strings.Fields(booking)
 		firstNames = append(firstNames, names[0])
 	}
-	
+	if userTickets > remainingTickets {
+		err := panic
+	}	
 	bookingMessage := fmt.Sprintf("These are all our bookings: %v\n", firstNames)
 	return bookingMessage
 
 }
 
 func main(){
-	welcomeMsg(conferenceName, conferenceTickets, remainingTickets)
-	getUserInput()
+	welcomeMsg()
+	firstName, lastName, email, userTickets := getUserInput()
 }
