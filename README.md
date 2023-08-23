@@ -1,1 +1,1 @@
-# LearningGoProhects
+# LearningGoProjects
